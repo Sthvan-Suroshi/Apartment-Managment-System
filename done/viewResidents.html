@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Residents List</title>
+    <style>
+      table {
+        width: 80%;
+        border-collapse: collapse;
+        margin: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Residents List</h2>
+    <table id="residentsTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Apartment Number</th>
+          <th>Contact Number</th>
+        </tr>
+      </thead>
+      <tbody id="residentsList"></tbody>
+    </table>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("http://localhost:3000/residents")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((residents) => {
+            const residentsTable = document.getElementById("residentsTable");
+            const residentsList = document.getElementById("residentsList");
+
+            if (residents.length === 0) {
+              const noResidentsRow = residentsTable.insertRow();
+              const noResidentsCell = noResidentsRow.insertCell(0);
+              noResidentsCell.textContent = "No residents found.";
+            } else {
+              residents.forEach((resident) => {
+                const row = residentsTable.insertRow();
+                row.insertCell(0).textContent = resident.name;
+                row.insertCell(1).textContent = resident.apartment_number;
+                row.insertCell(2).textContent = resident.contact_number;
+              });
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching residents:", error);
+            const residentsTable = document.getElementById("residentsTable");
+            const errorRow = residentsTable.insertRow();
+            const errorCell = errorRow.insertCell(0);
+            errorCell.textContent =
+              "Error fetching residents. Please try again later.";
+          });
+      });
+    </script>
+  </body>
+</html>

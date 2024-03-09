@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/Visitor.css" />
+    <title>A M S</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <p>A M S</p>
+      </div>
+
+      <div class="nav_links">
+        <div class="links">
+          <a href="Resident.html">Residents Detials</a>
+          <a href="Visitor.html">Visitors Details</a>
+          <a href="Exit.html">Exit Details</a>
+        </div>
+      </div>
+    </nav>
+
+    <section id="section1">
+      <h1>Add Visitor</h1>
+      <div class="wrapper">
+        <div class="addvisitor_container">
+          <label for="visitor_name">Visitor Name:</label>
+          <input type="text" id="visitor_name" required /><br />
+
+          <label for="apartment_number">Apartment Number:</label>
+          <input type="text" id="apartment_number" required /><br />
+
+          <label for="contact_number">Contact Number:</label>
+          <input type="text" id="contact_number" required /><br />
+
+          <label for="visit_date">Visit Date:</label>
+          <input type="date" id="visit_date" required /><br />
+
+          <label for="resident_id">Resident ID:</label>
+          <input type="text" id="resident_id" required /><br />
+
+          <!-- New input field for reason_for_visit -->
+          <label for="reason_for_visit">Reason for Visit:</label>
+          <input type="text" id="reason_for_visit" required /><br />
+
+          <button type="button" onclick="addVisitor()">Add Visitor</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="section2">
+      <p>
+        To know visitor details to specific residents
+        <span onclick="show()">Click Here</span>
+      </p>
+      <div class="hidden">
+        <h1>Visitor Details</h1>
+        <div class="wrapper">
+          <div class="getDetails_container">
+            <label for="residentId">Resident ID:</label>
+            <input type="text" id="residentId" name="residentId" required />
+            <button type="button" onclick="getVisitorDetails()">
+              Get Visitor Details
+            </button>
+          </div>
+          <table id="visitorDetailsTable">
+            <thead>
+              <tr>
+                <th>Visitor Name</th>
+                <th>Apartment Number</th>
+                <th>Contact Number</th>
+                <th>Visit Date</th>
+                <th>Reason for Visit</th>
+              </tr>
+            </thead>
+            <tbody id="visitorDetailsBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="section3">
+      <h1>Visitors Lists</h1>
+      <div class="wrapper">
+        <table id="visitorsTable">
+          <thead>
+            <tr>
+              <th>Visitor Name</th>
+              <th>Apartment Number</th>
+              <th>Contact Number</th>
+              <th>Visit Date</th>
+              <th>Reason for Visit</th>
+            </tr>
+          </thead>
+          <tbody id="visitorsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="section4">
+      <p>Get Count of Vistors <span onclick="show1()">Click Here</span></p>
+      <div class="hidden2">
+        <h1>Visitor Counts</h1>
+        <div class="wrapper">
+          <div class="getCount_container">
+            <button type="button" onclick="getVisitorCounts()">
+              Get Visitor Counts
+            </button>
+          </div>
+
+          <table id="visitorCountsTable">
+            <thead>
+              <tr>
+                <th>Resident ID</th>
+                <th>Resident Name</th>
+                <th>Visitor Count</th>
+              </tr>
+            </thead>
+            <tbody id="visitorCountsBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer_container">
+        <h1>Apartment Managment System</h1>
+        <p>DBMS mini Project by Sthvan Suroshi and Sudha Gangadharmath</p>
+      </div>
+    </footer>
+    <script src="../scripts/addVisitor.js"></script>
+    <script src="../scripts/viewVisitor.js"></script>
+    <script src="../scripts/getVisitorDetails.js"></script>
+    <script src="../scripts/getVisitorCount.js"></script>
+  </body>
+</html>

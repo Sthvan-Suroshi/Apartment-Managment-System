@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>A M S</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <p>A M S</p>
+      </div>
+
+      <div class="nav_links">
+        <div class="links">
+          <a href="Resident.html">Residents Detials</a>
+          <a href="Visitor.html">Visitors Details</a>
+          <a href="Exit.html">Exit Details</a>
+        </div>
+      </div>
+    </nav>
+    <section id="section1">
+      <h1>Residents Lists</h1>
+        
+      <div class="wrapper">
+        <table id="residentsTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Apartment Number</th>
+              <th>Contact Number</th>
+            </tr>
+          </thead>
+          <tbody id="residentsList"></tbody>
+        </table>
+      </div>
+
+      <!-- adding residents  -->
+      <h1>Add Residents</h1>
+      <div class="wrapper">
+        <div class="addresident">
+          <form id="residentForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required /><br />
+
+            <label for="apartmentNumber">Apartment Number:</label>
+            <input
+              type="text"
+              id="apartmentNumber"
+              name="apartmentNumber"
+              required
+            /><br />
+
+            <label for="contactNumber">Contact Number:</label>
+            <input
+              type="text"
+              id="contactNumber"
+              name="contactNumber"
+              required
+            /><br />
+
+            <button type="button" onclick="addResident()">Add Resident</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer_container">
+        <h1>Apartment Managment System</h1>
+        <p>DBMS mini Project by Sthvan Suroshi and Sudha Gangadharmath</p>
+      </div>
+    </footer>
+    <script src="../scripts/viewResidents.js"></script>
+    <script src="../scripts/addResident.js"></script>
+  </body>
+</html>
